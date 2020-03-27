@@ -7,6 +7,10 @@ buildscript {
         
     }
     dependencies {
+        def nav_version = "2.3.0-alpha04"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    }
+    dependencies {
         classpath 'com.android.tools.build:gradle:3.6.1'
         
         // NOTE: Do not place your application dependencies here; they belong
@@ -15,10 +19,16 @@ buildscript {
 }
 
 allprojects {
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
     repositories {
         google()
+        maven {
+                 url 'https://maven.google.com'
+             }
         jcenter()
-        
     }
 }
 
