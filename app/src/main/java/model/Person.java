@@ -8,10 +8,10 @@ import com.application.databindingexample.BR;
 public class Person extends BaseObservable {
 
     private String name;
-    private int age;
+    private String lastName;
 
-    public Person(String name, int age) {
-        this.age = age;
+    public Person(String name, String lastName) {
+        this.lastName = lastName;
         this.name = name;
     }
 
@@ -20,15 +20,14 @@ public class Person extends BaseObservable {
         notifyPropertyChanged(BR.name);
     }
 
-    public void setAge(int age) {
-        this.age = age;
-        notifyPropertyChanged(BR.age);
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+        notifyPropertyChanged(BR.lastName);
     }
 
-
     @Bindable
-    public int getAge() {
-        return age;
+    public String getLastName() {
+        return lastName;
     }
 
     @Bindable
